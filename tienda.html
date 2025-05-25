@@ -10,26 +10,38 @@
     <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet'>
     </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">EGUATE</div>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+  <header>
+  <nav>
+    <div class="logo">EGUATE</div>
 
-            <div class="nav-actions">
-        <div class="cart-icon-container">
-            <i class="bi bi-cart3 cart-icon" id="cart-icon"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </div>
-        <button class="menu-toggle" aria-label="Abrir menú">
-    <i class="bi bi-list"></i>
-  </button>     
-        </nav>
-    </header>
+    <ul class="nav-links">
+      <li><a href="index.html#historia">Historia</a></li>
+
+      <li>
+        <a href="index.html#servicios">Servicios</a>
+        <ul class="dropdown">
+          <li><a href="index.html#reparaciones">Instalaciones - Equipo</a></li>
+          <li><a href="index.html#materiales">Conductores</a></li>
+          <li><a href="index.html#consultoria">Asesorías</a></li>
+        </ul>
+      </li>
+
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="cart-icon-container">
+        <i class="bi bi-cart3 cart-icon" id="cart-icon"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </div>
+
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
 
     <div class="ticker-container">
   <div class="ticker">
@@ -70,7 +82,7 @@ Marca: COOPER </p>
 
                 <div class="product-card" data-id="producto3">
                     <img src="https://ceica.com/wp-content/uploads/2020/02/Clasif-3-Transformadores-tipo-poste-1.jpg" alt="Producto 3">
-                    <h3>Transformadore tipo poste</h3>
+                    <h3>Transformador tipo poste</h3>
                     <p class="price">Q 18,000</p>
                     <p class="description">Transformadores aislados en aceite, monofásicos.  </p>
                     <button class="btn add-to-cart">Agregar al carrito</button>

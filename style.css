@@ -29,8 +29,7 @@ body {
     scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces de ancla */
 }
 
-
-/* Animación de entrada desde la derecha */
+/* ANIMACIÓN */
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -42,92 +41,163 @@ body {
   }
 }
 
-/* Se aplica solo cuando se activa */
 .seccion-animada.animate-in {
   animation: slideInRight 0.6s ease both;
 }
 
+/* HEADER GENERAL */
+header {
+  background-color: var(--color-primario);
+  color: var(--color-texto-oscuro);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-/* Menú desplegable */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-texto-oscuro);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-acento);
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* DROPDOWN */
 .nav-links li {
-    position: relative; /* Para el dropdown */
+  position: relative;
 }
 
 .dropdown {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    background-color: var(--color-secundario);
-    list-style: none;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  position: absolute;
+  background-color: var(--color-primario);
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+}
+
+.dropdown li a {
+  padding: 8px 20px;
+  display: block;
+  color: var(--color-texto-oscuro);
+}
+
+.dropdown li a:hover {
+  background-color: var(--color-hover);
+  color: var(--color-secundario);
 }
 
 .nav-links li:hover .dropdown {
-    display: block; /* Mostrar en hover */
+  display: block;
 }
 
-/* Botón de menú (visible solo en móvil) */
+/* ACCIONES DEL NAV */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon-container {
+  position: relative;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-acento);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* BOTÓN MENÚ HAMBURGUESA */
 .menu-toggle {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: var(--color-secundario);
-    cursor: pointer;
-    transition: color 0.3s ease;
-    display: none; /* Oculto por defecto */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--color-secundario);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: none;
+  z-index: 1001;
 }
 
 .menu-toggle:hover {
-    color: var(--color-hover);
+  color: var(--color-acento);
 }
 
-/*
+/* RESPONSIVE: FULLSCREEN MENU MÓVIL */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: var(--color-primario);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-        border-left: 1px solid var(--color-borde);
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-*/
-
-/* ========== Hero section ========== */
-/* ========== Header y Navegación ========== */
-@media (max-width: 768px) {
   .nav-links {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100vh;
+    width: 100%;
     background-color: var(--color-primario);
     flex-direction: column;
-    padding: 2rem;
-    z-index: 998;
-    overflow-y: auto;
-
-    /* Animación lateral */
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-
-    /* Evita mostrar el menú hasta que esté activo */
     visibility: hidden;
     opacity: 0;
+    z-index: 998;
   }
 
   .nav-links.active {
@@ -137,135 +207,29 @@ body {
   }
 
   .nav-links li {
-    margin: 20px 0;
-  }
-
-  .menu-toggle {
-    display: block;
-    z-index: 999;
-  }
-}
-
-header {
-    background-color: var(--color-primario); /* Fondo oscuro para el header */
-    color: var(--color-texto-oscuro);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para el header */
-    position: sticky; /* Hace que el header se quede fijo al hacer scroll */
-    top: 0;
-    z-index: 999; /* Asegura que esté por encima de otros elementos */
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px; /* Limita el ancho de la barra de navegación */
-    margin: 0 auto; /* Centra la barra de navegación */
-}
-
-.logo {
-    font-size: 2rem; /* Tamaño de fuente ligeramente más grande */
-    font-weight: 700; /* Negrita */
-    color: var(--color-secundario);
-    letter-spacing: 1px; /* Pequeño espaciado entre letras */
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px; /* Aumenta el espacio entre enlaces */
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--color-texto-oscuro); /* Color claro para enlaces en fondo oscuro */
-    font-weight: 500;
-    padding: 5px 0; /* Padding vertical para un área de clic más grande */
-    position: relative; /* Para el efecto de subrayado */
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-acento); /* Color de subrayado */
-    transition: width 0.3s ease-in-out;
-}
-
-nav a:hover::after {
-    width: 100%; /* El subrayado se expande al hacer hover */
-}
-
-/* Menú desplegable */
-.nav-links li {
-    position: relative;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    background-color: var(--color-primario); /* Mismo fondo que la nav principal */
-    list-style: none;
-    padding: 10px 0; /* Ajusta padding */
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    min-width: 160px; /* Ancho mínimo para los items del dropdown */
-    left: 0;
-    top: 100%; /* Debajo del elemento padre */
-    z-index: 1000;
-}
-
-.dropdown li a {
-    padding: 8px 20px; /* Padding para los items del dropdown */
-    display: block; /* Para que ocupen todo el ancho y el hover funcione bien */
-    color: var(--color-texto-oscuro);
-}
-
-.dropdown li a:hover {
-    background-color: var(--color-hover); /* Fondo en hover para los items */
-    color: var(--color-secundario);
-}
-
-.nav-links li:hover .dropdown {
-    display: block;
-}
-
-/* Botón de menú (visible solo en móvil) */
-.menu-toggle {
-    font-size: 2rem; /* Tamaño más grande para facilitar el clic */
-    background: none;
-    border: none;
-    color: var(--color-secundario);
-    cursor: pointer;
-    transition: color 0.3s ease;
-    display: none;
-}
-
-.menu-toggle:hover {
-    color: var(--color-acento); /* Color acento al pasar el ratón */
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Espacio entre carrito y botón */
-}
-
-@media (max-width: 768px) {
-  .cart-icon-container {
-    /* Asegura que el carrito también se vea bien en móvil */
-    font-size: 1.5rem;
+    margin: 0;
   }
 
   .nav-actions {
     gap: 10px;
   }
-}
 
+  .cart-icon-container {
+    font-size: 1.5rem;
+  }
+
+  /* Ocultar dropdowns en móvil si no hay JS que los active */
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+  }
+
+  .nav-links li:hover .dropdown {
+    display: none;
+  }
+}
 
 /* ========== Hero section ========== */
 .hero {
@@ -645,19 +609,25 @@ form .btn:hover {
         gap: 30px;
     }
 
-    .contact-content form,
-    .google-map {
-        max-width: 80%; /* Ocupa todo el ancho disponible */
+    .contact-content form{
+        max-width: 100%; /* Ocupa todo el ancho disponible */
     }
 
-    .google-map {
-        height: 300px; /* Menor altura del mapa en móvil */
-    }
-}
 
-@media (max-width: 480px) {
-    .google-map {
-        height: 200px; /* Aún menor altura en móviles muy pequeños */
+    /* Tablets y pantallas medianas */
+    @media (max-width: 768px) {
+        #map {
+        height: 300px;
+        max-width: 90%;
+    }
+    }
+
+    /* Móviles pequeños */
+    @media (max-width: 480px) {
+    #map {
+        height: 220px;
+        max-width: 95%;
+    }
     }
 }
 
@@ -847,11 +817,6 @@ footer p{
 
     .hero h3 {
         font-size: 1.5rem; /* Subtítulo más pequeño en móvil */
-    }
-
-    .language-switcher {
-        top: 15px;
-        right: 15px;
     }
 
     main {
@@ -1357,7 +1322,7 @@ footer p{
   display: flex;
   align-items: center;
   backdrop-filter: blur(6px);
-  z-index: 9999;
+  z-index: 1;
 }
 
 .ticker {
@@ -1388,4 +1353,286 @@ footer p{
   }
 }
 
+/* ========== ESTILOS PERSONALIZADOS PARA SECCIONES ADICIONALES ========== */
+
+/* Por qué elegirnos */
+.porque-elegirnos {
+    padding: 60px 20px;
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+
+.porque-elegirnos h2 {
+    font-size: 2.8rem;
+    color: var(--color-primario);
+    margin-bottom: 40px;
+}
+
+.porque-elegirnos .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.porque-elegirnos .feature-card {
+    background-color: var(--color-card);
+    padding: 30px;
+    border-radius: 12px;
+    flex: 1 1 280px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.porque-elegirnos .feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.porque-elegirnos .feature-card h3 {
+    font-size: 2rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+}
+
+.porque-elegirnos .feature-card p {
+    color: var(--color-texto-claro);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Contadores */
+.porque-elegirnos .stats {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.porque-elegirnos .stat {
+    text-align: center;
+    flex: 1 1 200px;
+}
+
+.porque-elegirnos .stat .counter {
+    font-size: 3rem;
+    color: var(--color-acento);
+    font-weight: bold;
+}
+
+.porque-elegirnos .stat p {
+    color: var(--color-texto-claro);
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* Clientes satisfechos */
+.clientes-satisfechos {
+    padding: 60px 20px;
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+
+.clientes-satisfechos h2 {
+    font-size: 2.8rem;
+    color: var(--color-primario);
+    margin-bottom: 40px;
+}
+
+/* testimonial */
+
+/* Contenedor principal */
+.testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background-color: var(--color-fondo-claro);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Track que se desplaza */
+.testimonial-wrapper {
+    overflow: hidden;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+/* Cards centradas y cuadradas */
+.testimonial-card {
+    height: 300px;
+    width: 140px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 40px;
+    margin: 0 10px;
+    background-color: var(--color-card);
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Botones carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-acento);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-acento-oscuro);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-texto-claro);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: var(--color-acento);
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+@media screen and (max-width: 600px) {
+    .testimonial-card {
+        padding: 30px;
+        aspect-ratio: auto;
+    }
+
+    .carousel-btn {
+        font-size: 1.5rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Marcas que confían en nosotros */
+.marcas {
+    padding-top: 100px;
+    padding: 60px 20px;
+    background-color: var(--color-fondo);
+    text-align: center;
+}
+
+.marcas h2 {
+    font-size: 2.8rem;
+    color: var(--color-primario);
+    margin-bottom: 40px;
+}
+
+.brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.brands img {
+    max-height: 60px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+
+.brands img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* ========== MEDIA QUERIES PERSONALIZADOS ========== */
+@media screen and (max-width: 768px) {
+    .porque-elegirnos .features,
+    .porque-elegirnos .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card {
+        max-width: 90%;
+    }
+
+    .brands {
+        gap: 20px;
+    }
+
+    .brands img {
+        max-height: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .porque-elegirnos .feature-card h3 {
+        font-size: 1.7rem;
+    }
+
+    .porque-elegirnos .feature-card p,
+    .testimonial-card p {
+        font-size: 1rem;
+    }
+
+    .testimonial-card strong {
+        font-size: 0.95rem;
+    }
+
+    .brands img {
+        max-height: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial-card {
+    padding: 20px;
+    font-size: 0.95rem;
+    aspect-ratio: 1 / 1.2;
+  }
+
+  .carousel-btn {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}
 

@@ -301,3 +301,72 @@ setInterval(() => {
   infoText.textContent = messages[idx];
 }, 15000); // Cambia el mensaje cada 15 segundos
 
+// Contadores animados
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200;
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.testimonial-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const indicators = document.querySelectorAll('.indicator');
+
+  let index = 0;
+  const total = cards.length;
+
+  function updateCarousel() {
+    const percentage = -index * 100;
+    track.style.transform = `translateX(${percentage}%)`;
+    updateIndicators();
+  }
+
+  function updateIndicators() {
+    indicators.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % total;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + total) % total;
+    updateCarousel();
+  });
+
+  indicators.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      index = i;
+      updateCarousel();
+    });
+  });
+
+  setInterval(() => {
+    index = (index + 1) % total;
+    updateCarousel();
+  }, 6000);
+
+  updateCarousel();
+});
