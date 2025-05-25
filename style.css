@@ -331,6 +331,10 @@ section:nth-of-type(even) { /* Estilo alterno para secciones pares */
     background-color: var(--color-secundario);
 }
 
+p {
+    text-align: justify;
+}
+
 h2 {
     font-size: 2.5rem; /* Títulos de sección más grandes */
     margin-bottom: 40px; /* Más espacio debajo del título */
@@ -381,6 +385,7 @@ h2 {
 
 /* Texto */
 .card p {
+    text-align: center;
     font-size: 1.5rem;
     color: var(--color-fondo-claro);
     line-height: 1.6;
@@ -539,6 +544,7 @@ h2 {
 }
 
 #contacto p {
+    text-align: center;
     font-size: 1.1rem;
     color: var(--color-texto-claro);
     margin-bottom: 35px;
@@ -641,7 +647,7 @@ form .btn:hover {
 
     .contact-content form,
     .google-map {
-        max-width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 80%; /* Ocupa todo el ancho disponible */
     }
 
     .google-map {
@@ -651,7 +657,7 @@ form .btn:hover {
 
 @media (max-width: 480px) {
     .google-map {
-        height: 250px; /* Aún menor altura en móviles muy pequeños */
+        height: 200px; /* Aún menor altura en móviles muy pequeños */
     }
 }
 
@@ -704,6 +710,10 @@ footer .disclaimer {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.5;
+}
+
+footer p{
+    text-align: center;
 }
 
 /* ========== Modal ========== */
