@@ -1,0 +1,17 @@
+// Si la tienda.html tiene su propio modal de TyC con IDs diferentes
+if (abrirModalTienda && modalTienda && cerrarModalTienda) {
+  abrirModalTienda.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalTienda.style.display = 'flex';
+  });
+
+  cerrarModalTienda.addEventListener('click', () => {
+  modalTienda.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modalTienda) {
+      modalTienda.style.display = 'none';
+    }
+});
+}

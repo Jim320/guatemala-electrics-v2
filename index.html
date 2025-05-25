@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="assets/poste-electrico.png" type="image/png" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electricos de Guatemala</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIINfQPDQwr7eSTLwkNnISGFNkjhAySgQIRc="
+     crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">EGUATE</div>
+      
+      
+      <ul class="nav-links">
+        <li><a href="#historia">Historia</a></li>
+        <li>
+          <a href="#servicios">Servicios</a>
+          <ul class="dropdown">
+            <li><a href="#reparaciones">Equipo</a></li>
+            <li><a href="#materiales">Conductores</a></li>
+            <li><a href="#consultoria">Asesoría</a></li>
+          </ul>
+        </li>
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#vision">Visión</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+      </ul>
+      <div class="nav-actions">
+  <div class="cart-icon-container">
+    <i class="bi bi-cart3 cart-icon" id="cart-icon"></i>
+    <span class="cart-count" id="cart-count">0</span>
+  </div>
+  <button class="menu-toggle" aria-label="Abrir menú">
+    <i class="bi bi-list"></i>
+  </button>
+</div>
+    </nav>
+    </header>
+    <div class="hero">
+      <h1>Soluciones en Electrónica, Electricidad, Conductores y Servicios Afines.</h1>
+      <h3>Tu aliado confiable en tecnología.</h3>
+      <a href="#contacto" class="btn">Whatsapp <i class="bi bi-whatsapp"></i></a>
+    </div>
+  <main>
+    <section id="historia" class="seccion-animada">
+      <h2>Historia</h2>
+      <p>
+         En 2005 un pequeño grupo de estudiantes de la Universidad Nacional de Guatemala, dirigido por 3 Guatemaltecos, plantea la idea de 
+         crear una empresa, que posea la capacidad de ofrecer servicios y productos relacionados a la electrónica y 
+         materiales eléctricos. Pensado en atender a los clientes el mejor servicio y precios.
+        <br><br>
+        El 30 de marzo de 2006 es registrada con el nombre de Materiales Eléctricos y Semiconductores de Guatemala, Sociedad Anónima. ofreciendo
+        los servicios anteriormente mencionados, logrando tener presencia en 15 departamentos de Guatemala, en el primer trimestre de operaciones.
+        <br><br>
+        Al iniciar 2006, la empresa se ve en la obligación de optar por otro nombre comercial, debido a demandas por empresas que anteriormente tenía el nombre en posesión, 
+        por consiguiente, es notificado el cambio de nombre y pasa a nombrarse Electricos de Guatemala Sociedad Anónima, esto no fue impedimento para mantener los altos estándares
+        de atención al cliente y productos de calidad.
+        <br><br>
+        En 2010 es adquirida en totalidad por el Grupo Continental, lo cual hace que se cierren más de 4 sucursales en el país. Gracias a esto logramos tener alcance por medios electrónicos. Logrando un legado que permanece.
+        Es así como nace y se mantiene Electricos de Guatemala, una empresa comprometida con la sociedad para marcar cambios.
+      </p>
+      <button class="boton" onclick="mostrarHistoria()">Ver Contenido</button>
+      <div id="multimedia-historia" class="multimedia"></div>
+    </section>
+
+    <section id="mision" class="seccion-animada">
+      <h2>Misión</h2>
+      <p>
+        Brindar servicios de reparación a todos los guatemaltecos así como mantenimiento electrónico con
+        materiales de alta calidad, ofreciendo soluciones efectivas, rápidas y
+        sostenibles. También brindar soluciones en instalaciones eléctricas domiciliarias e industriales.
+        <br><br>
+        Nuestra misión es proporcionar a todos los guatemaltecos soluciones integrales y de alta calidad en reparación electrónica y mantenimiento de equipos, así como en instalaciones eléctricas domiciliarias e industriales. Nos comprometemos a ofrecer un servicio eficiente, rápido y sostenible, utilizando materiales de primera calidad y tecnologías innovadoras. Nuestro objetivo es brindar soluciones personalizadas y accesibles que superen las expectativas de nuestros clientes, asegurando siempre su satisfacción y garantizando un impacto positivo en sus proyectos. En cada servicio, trabajamos con dedicación, ética y profesionalismo, buscando ser un referente confiable en el sector.
+      </p>
+      <button class="boton" onclick="mostrarMision()">Ver Contenido</button>
+      <div id="multimedia-mision" class="multimedia"></div>
+    </section>
+
+    <section id="vision" class="seccion-animada">
+      <h2>Visión</h2>
+      <p>
+        Ser la empresa líder en soluciones electrónicas y eléctricas en Guatemala,
+        reconocidos por su compromiso con la calidad, la innovación y la
+        satisfacción del cliente. Pero también por nuestros principios y valores fundamentales en cada servicio.
+        <br><br>
+        Nuestra visión es ser reconocidos como la empresa líder en soluciones electrónicas y eléctricas en Guatemala, destacándonos por nuestra capacidad de innovación, compromiso con la calidad y atención excepcional al cliente. Aspiramos a convertirnos en la primera opción para quienes necesiten servicios técnicos y profesionales, tanto en el ámbito doméstico como industrial. A través de la mejora continua y el respeto por los principios fundamentales que guían nuestro trabajo, buscamos no solo satisfacer las necesidades de nuestros clientes, sino también generar un impacto positivo en el desarrollo y la modernización tecnológica del país. Queremos ser conocidos por nuestra capacidad para entregar soluciones efectivas, rápidas y accesibles, construyendo relaciones de confianza y respeto con cada uno de nuestros clientes.
+      </p>
+      <button class="boton" onclick="mostrarVision()">Ver Contenido</button>
+      <div id="multimedia-vision" class="multimedia"></div>
+    </section>
+
+    <section id="servicios" class="seccion-animada">
+  <h2>Servicios de Electrónica y Electricidad</h2>
+  <p>Soluciones integrales para tus proyectos eléctricos y electrónicos, con atención personalizada y materiales de calidad garantizada.</p>
+
+  <div class="cards" class="seccion-animada">
+
+    <div class="card bg-reparaciones" id="reparaciones">
+      <h3>Equipo</h3>
+      <p>
+        Ofrecemos diagnóstico y reparación especializada de equipos electrónicos y eléctricos. Garantía de funcionamiento y tiempos de entrega eficientes para clientes residenciales, comerciales e industriales.
+      </p>
+    </div>
+
+    <div class="card bg-materiales"id="materiales">
+      <h3>Conductores</h3>
+      <p>
+        Comercializamos materiales eléctricos certificados y componentes electrónicos de alta calidad. Asesoramos en la elección del producto ideal para tu proyecto o mantenimiento.
+      </p>
+    </div>
+
+    <div class="card bg-consultoria" id="consultoria">
+      <h3>Asesoría</h3>
+      <p>
+        Brindamos consultoría técnica personalizada en proyectos eléctricos y electrónicos: planificación, diseño, instalación y optimización. Soluciones a medida para empresas, constructores y particulares.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+   <section id="contacto" class="contacto-bg">
+  <h2>Contáctanos</h2>
+  <p>
+    ¿Tienes dudas o necesitas una cotización? Escríbenos.<br />
+    <em>Será un honor formar parte de tu proyecto.</em>
+  </p>
+
+  <div class="contact-content" >
+    <div class="contact-details">
+      <h3>Información de contacto</h3>
+      <ul>
+        <li><strong>Dirección:</strong> 5ª Avenida 10-20, Zona 1, Ciudad de Guatemala</li>
+        <li><strong>Teléfono:</strong> +502 1234 5678</li>
+        <li><strong>Correo electrónico:</strong> contacto@electricosgt.com</li>
+        <li><strong>Horario de atención:</strong> Lunes a Viernes, 8:00 a.m. – 5:00 p.m.</li>
+      </ul>
+    </div>
+
+    <div id="map" class="google-map"></div>
+  </div>
+  <form>
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea placeholder="Tu mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar mensaje</button>
+    </form>
+
+    
+</section>
+
+  </main>
+
+    <footer>
+        <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-linkedin"></i>
+        </div>
+        <p>&copy; 2025 Electricos de Guatemala | Todos los derechos Reservados |
+            <a href="#" id="terminos-link"> Términos y condiciones</a>
+        </p>
+        <p class="disclaimer">
+            Descargo de responsabilidad
+        </p>
+    </footer>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Términos y Condiciones</h3>
+      <p>TÉRMINOS Y CONDICIONES DE USO
+        <p>Última actualización: 22 de febrero de 2024
+        <br>
+        Bienvenido a Electricos de Guatemala. Al acceder y utilizar este sitio web, usted acepta cumplir con los siguientes Términos y Condiciones. Si no está de acuerdo con estos términos, le rogamos no utilizar el sitio.
+        </p>
+        <h4>1. Información General</h4>
+        <p>Este sitio web es operado por Electricos de Guatemala S. A. empresa apadrinada por Grupo Continental, y está dedicado a la venta, distribución, asesoramiento y publicación de contenido relacionado con materiales eléctricos, componentes electrónicos y tecnología asociada. Toda la información disponible tiene fines informativos y comerciales.
+        </p>
+        <h4>2. Uso del Sitio Web</h4>
+        <p>El contenido publicado es propiedad de Grupo Continental o de sus proveedores autorizados.
+        
+        No está permitido copiar, reproducir o distribuir el contenido sin autorización escrita.
+        
+        Usted se compromete a usar este sitio solo con fines legales y respetando los derechos de terceros.
+        </p>
+        <h4>3. Productos y Servicios</h4>
+        <p>Todos los productos y servicios ofrecidos están sujetos a disponibilidad.
+        
+        Nos reservamos el derecho de modificar precios, especificaciones técnicas y condiciones sin previo aviso.
+        
+        Las imágenes son ilustrativas y pueden diferir del producto final.
+        </p>
+        <h4>4. Compras y Pagos</h4>
+        <p>Las compras realizadas a través del sitio están sujetas a confirmación y verificación de pago.
+        
+        Aceptamos [métodos de pago aceptados].
+        
+        Nos reservamos el derecho de cancelar pedidos en caso de errores en precios, descripciones u otros problemas técnicos.
+        </p>
+        <h4>5. Envíos y Devoluciones.</h4>
+        <p>Ofrecemos envíos a toda Guatemala.
+        
+        Los plazos de entrega son estimados y pueden variar por causas ajenas a nuestra operación.
+        
+        Se aceptan devoluciones únicamente bajo condiciones específicas detalladas en nuestra política de devoluciones.
+        </p>
+        <h4>6. Limitación de Responsabilidad</h4>
+        <p>No nos hacemos responsables por daños directos o indirectos derivados del uso del sitio o de los productos adquiridos.
+        
+        Toda instalación eléctrica o electrónica debe realizarse por personal calificado.
+        </p>
+        <h4>7. Enlaces a Terceros</h4>
+        <p>Este sitio puede contener enlaces a otros sitios web. No somos responsables del contenido, políticas o prácticas de dichos sitios.
+        </p>
+        <h4>8. Protección de Datos</h4>
+        <p>Nos comprometemos a proteger su información personal conforme a nuestra Política de Privacidad.
+        
+        No compartimos sus datos con terceros sin su consentimiento.
+        </p>
+        <h4>9. Modificaciones</h4>
+        <p>Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el sitio web.
+        </p>
+        <h4>10. Jurisdicción</h4>
+        <p>Estos términos se rigen por las leyes de Guatemala. Cualquier disputa será resuelta en los tribunales competentes de [ubicación].
+        </p>
+       
+        <h4>11. Descargo de responsabilidad.</h4>
+        <p>La información proporcionada en este sitio es únicamente con fines informativos. Eléctricos de Guatemala no se hace responsable por daños o pérdidas derivados del uso indebido de los contenidos o servicios mencionados. Para trabajos eléctricos, siempre se recomienda la intervención de un profesional certificado. Las imágenes y videos utilizados tienen fines ilustrativos y/o educativos, y pertenecen a sus respectivos autores. Todo el contenido visual está protegido por derechos de autor.
+        </p>
+        <h4>Contacto:</h4>
+        Para cualquier consulta, puede comunicarse a ejemplo.comgt.
+        </p>
+    </div>
+  </div>
+   <div id="cart-modal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-cart-modal close">&times;</span>
+            <h3>Tu Carrito de Compras</h3>
+            <div id="cart-items">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">Q 0.00</span></p>
+                <button class="btn checkout-btn">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+     <div id="google_translate_element" style="display:none;"></div>
+
+  <script src="script.js" defer></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  
+</body>
+</html>
